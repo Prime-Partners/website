@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Partners | Consultoria Financeira e Estratégica</title>
+    <link rel="icon" href="favicon.png" type="x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandBlue: '#002E5D', 
+                        brandGold: '#A68966', 
+                        lightGray: '#F9F9F9'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        .about-gradient { background: linear-gradient(to right, #F9F9F9 0%, #ffffff 100%); }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 1px; bottom: -4px; left: 0; background-color: #002E5D; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .service-card { border-top: 1px solid #e5e7eb; transition: all 0.4s ease; }
+        .service-card:hover { border-top: 1px solid #002E5D; background-color: #fff; transform: translateY(-5px); }
+        .impact-tag { border-left: 2px solid #002E5D; }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased font-sans">
+
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-8 h-28 flex justify-between items-center">
+        
+        <div class="flex items-center space-x-6">
+            <img src="logotipo.png" alt="Prime Partners" class="h-24 w-24 object-contain">
+            <div class="hidden lg:block border-l border-gray-200 pl-6">
+                <span class="text-2xl font-bold tracking-tighter text-brandBlue font-serif block leading-none"></span>
+                <span class="text-[10px] tracking-[0.4em] text-gray-400 uppercase"></span>
+            </div>
+        </div>
+        
+        <div class="flex items-center space-x-12">
+            <div class="hidden md:flex space-x-10 text-[11px] font-bold tracking-widest uppercase text-gray-600">
+                <a href="#about" class="nav-link" data-i18n="nav-about">Sobre Nós</a>
+                <a href="#services" class="nav-link" data-i18n="nav-solutions">Soluções</a>
+                <a href="#contact" class="nav-link" data-i18n="nav-contact">Contacto</a>
+            </div>
+
+            <div class="flex border border-gray-200 rounded overflow-hidden shadow-sm bg-white">
+                <a href="indexen.html" class="px-3 py-1.5 text-[10px] font-bold text-gray-400 hover:text-brandBlue transition-all duration-300">EN</a>
+                <span class="px-3 py-1.5 text-[10px] font-bold bg-brandBlue text-white cursor-default">PT</span>
+            </div>
+        </div>
+
+    </div>
+
+</nav>
+
+    <header class="relative min-h-screen flex items-center overflow-hidden">
+        
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070" 
+                 alt="Infraestrutura de Negócios Moderna" 
+                 class="w-full h-full object-cover grayscale">
+            
+            <div class="absolute inset-0 bg-brandBlue/80 mix-blend-multiply"></div>
+            
+            <div class="absolute inset-0 bg-gradient-to-r from-brandBlue via-brandBlue/40 to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-8 relative z-10 w-full pt-72 pb-20">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end border-b border-white/10 pb-12 mb-16">
+                <div>
+                    <h1 class="text-6xl md:text-8xl font-serif text-white mb-2 tracking-tighter">Prime Partners</h1>
+                    <p class="text-sm tracking-[0.5em] font-medium text-brandGold uppercase" data-i18n="hero-subtitle">
+                        Consultoria Financeira e Estratégica
+                    </p>
+                </div>
+                
+                <div class="mt-8 md:mt-0 text-left md:text-right text-[10px] leading-loose text-white/60 uppercase tracking-[0.2em] font-light">
+                    <p>Av. 24 de Julho, n° 42</p>
+                    <p data-i18n="address-city">Maputo, Moçambique</p>
+                    <p class="font-bold text-white mt-2">+258 86 3026749</p>
+                    <p class="lowercase tracking-normal text-white/40">info@prime-partners.net</p>
+                </div>
+            </div>
+
+            <div class="max-w-3xl">
+                <h2 class="text-5xl md:text-7xl font-serif text-white leading-[1.05] mb-8 italic" data-i18n="hero-title">
+                    Inteligência Financeira para o Crescimento.
+                </h2>
+                <p class="text-xl md:text-2xl text-white/70 font-light leading-relaxed mb-12" data-i18n="hero-desc">
+                    Visão estratégica e excelência técnica para navegar em cenários financeiros complexos em mercados emergentes.
+                </p>
+                
+                <div class="flex">
+                    <a href="#services" 
+                       class="group relative inline-flex items-center bg-brandGold px-10 py-5 text-[11px] font-bold uppercase tracking-[0.3em] text-brandBlue transition-all hover:bg-white" 
+                       data-i18n="cta-button">
+                        As Nossas Soluções
+                        <i class="fa-solid fa-arrow-right ml-3 transition-transform group-hover:translate-x-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-24 about-gradient overflow-hidden">
+        <div class="max-w-7xl mx-auto px-8">
+            
+            <div class="grid lg:grid-cols-2 gap-20 items-stretch mb-24">
+                <div class="flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-[11px] font-bold tracking-[0.5em] text-brandBlue uppercase mb-8">O Nosso Propósito</h3>
+                        <h4 class="text-3xl font-serif text-brandBlue mb-8 leading-snug">Transformar desafios financeiros em oportunidades para um crescimento sustentável.</h4>
+                        
+                        <div class="space-y-6 text-gray-600 font-light leading-relaxed text-[15px]">
+                            <p>Ao longo dos anos, a Prime Partners tem desempenhado um papel activo no apoio ao crescimento de empresas moçambicanas, facilitando o acesso a financiamento estratégico para projetos de investimento e operações. A nossa equipa já apoiou empresas na mobilização de mais de 300 milhões de Meticais em financiamento para CAPEX e OPEX, conectando negócios a Bancos e investidores estratégicos.</p>
+                            <p>Como parte do nosso compromisso de longo prazo com o desenvolvimento do setor empresarial em Moçambique, estabelecemos como objectivo apoiar empresas moçambicanas na obtenção de pelo menos <span class="font-bold text-brandBlue tracking-tight italic">3 Mil Milhões de Meticais</span> em financiamento até 2030, contribuindo para o crescimento sustentável, inovação e fortalecimento do setor privado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="stats-container" class="lg:pl-10 flex flex-col justify-end">
+                    <h5 class="text-[10px] font-bold text-brandGold uppercase tracking-[0.4em] mb-6 text-right">Marcos de Desempenho</h5>
+                    <div class="bg-white/40 p-8 border border-gray-100 rounded-sm shadow-sm">
+                        <div class="grid grid-cols-2 gap-x-10 gap-y-12">
+                            
+                            <div class="stat-item flex items-center space-x-5 cursor-pointer group" data-target="300">
+                                <div class="w-14 h-14 rounded-full border-2 border-brandBlue/10 flex items-center justify-center text-brandBlue font-bold text-xs transition-all duration-300 group-hover:border-brandBlue/30 group-hover:scale-110 shadow-sm">
+                                    <span class="counter">0</span>M+
+                                </div>
+                                <p class="text-[9px] text-gray-500 uppercase tracking-widest font-bold leading-tight">MZN<br>Mobilizados</p>
+                            </div>
+
+                            <div class="stat-item flex items-center space-x-5 cursor-pointer group" data-target="88" data-circle="circle-88">
+                                <div class="relative w-14 h-14 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                                    <svg class="absolute inset-0 w-full h-full transform -rotate-90">
+                                        <circle cx="28" cy="28" r="24" stroke="currentColor" stroke-width="3" fill="transparent" class="text-gray-100" />
+                                        <circle id="circle-88" cx="28" cy="28" r="24" stroke="currentColor" stroke-width="3" fill="transparent" stroke-dasharray="150" stroke-dashoffset="150" class="text-brandGold transition-all duration-700 ease-in-out" />
+                                    </svg>
+                                    <span class="text-brandBlue font-bold text-[11px] relative"><span class="counter">0</span>%</span>
+                                </div>
+                                <p class="text-[9px] text-gray-500 uppercase tracking-widest font-bold leading-tight">Taxa de<br>Sucesso</p>
+                            </div>
+
+                            <div class="stat-item flex items-center space-x-5 cursor-pointer group" data-target="7" data-circle="circle-7">
+                                <div class="relative w-14 h-14 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                                    <svg class="absolute inset-0 w-full h-full transform -rotate-90">
+                                        <circle cx="28" cy="28" r="24" stroke="currentColor" stroke-width="3" fill="transparent" class="text-gray-100" />
+                                        <circle id="circle-7" cx="28" cy="28" r="24" stroke="currentColor" stroke-width="3" fill="transparent" stroke-dasharray="150" stroke-dashoffset="150" class="text-brandGold transition-all duration-700 ease-in-out" />
+                                    </svg>
+                                    <span class="text-brandBlue font-bold text-[11px] relative"><span class="counter">0</span>%</span>
+                                </div>
+                                <p class="text-[9px] text-gray-500 uppercase tracking-widest font-bold leading-tight">Poupança<br>Financeira</p>
+                            </div>
+
+                            <div class="stat-item flex items-center space-x-5 cursor-pointer group" data-target="80" data-circle="circle-80">
+                                <div class="relative w-14 h-14 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                                    <svg class="absolute inset-0 w-full h-full transform -rotate-90">
+                                        <circle cx="28" cy="28" r="24" stroke="currentColor" stroke-width="3" fill="transparent" class="text-gray-100" />
+                                        <circle id="circle-80" cx="28" cy="28" r="24" stroke="currentColor" stroke-width="3" fill="transparent" stroke-dasharray="150" stroke-dashoffset="150" class="text-brandBlue transition-all duration-700 ease-in-out" />
+                                    </svg>
+                                    <span class="text-brandBlue font-bold text-[11px] relative"><span class="counter">0</span>%+</span>
+                                </div>
+                                <p class="text-[9px] text-gray-500 uppercase tracking-widest font-bold leading-tight">Melhoria<br>EBITDA</p>
+                            </div>
+
+                            <div class="stat-item flex items-center space-x-5 cursor-pointer group" data-target="30">
+                                <div class="w-14 h-14 rounded-full border-2 border-brandBlue/10 flex items-center justify-center text-brandBlue font-bold text-[10px] transition-all duration-300 group-hover:border-brandBlue/30 group-hover:scale-110 shadow-sm">
+                                    <span class="counter">0</span>k+
+                                </div>
+                                <p class="text-[9px] text-gray-500 uppercase tracking-widest font-bold leading-tight">Horas de<br>Consultoria</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-20 items-start pt-20 border-t border-gray-100">
+                <div class="space-y-12">
+                    <h5 class="text-[10px] font-bold text-brandGold uppercase tracking-[0.4em]">Valores Corporativos</h5>
+                    <div class="grid grid-cols-2 gap-x-8 gap-y-20">
+                        <div>
+                            <h5 class="text-xs font-bold text-brandBlue uppercase tracking-widest mb-3">Integridade</h5>
+                            <p class="text-[11px] text-gray-500 leading-relaxed uppercase">A confiança é a base de qualquer relação de consultoria bem-sucedida.</p>
+                        </div>
+                        <div>
+                            <h5 class="text-xs font-bold text-brandBlue uppercase tracking-widest mb-3">Excelência</h5>
+                            <p class="text-[11px] text-gray-500 leading-relaxed uppercase">Procuramos os mais elevados padrões profissionais na análise financeira.</p>
+                        </div>
+                        <div>
+                            <h5 class="text-xs font-bold text-brandBlue uppercase tracking-widest mb-3">Responsabilização</h5>
+                            <p class="text-[11px] text-gray-500 leading-relaxed uppercase">Execução disciplinada e resultados mensuráveis para os nossos clientes.</p>
+                        </div>
+                        <div>
+                            <h5 class="text-xs font-bold text-brandBlue uppercase tracking-widest mb-3">Parceria</h5>
+                            <p class="text-[11px] text-gray-500 leading-relaxed uppercase">Não vemos os nossos clientes como transacções, mas parceiros estratégicos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:pl-10 flex flex-col justify-end h-full pt-16">
+                    <div class="space-y-8">
+                        <div class="bg-white p-10 border-l-2 border-brandBlue shadow-sm">
+                            <h4 class="text-[9px] font-bold tracking-[0.3em] text-brandGold uppercase mb-4">Missão</h4>
+                            <p class="text-[15px] text-gray-500 font-serif italic leading-relaxed">
+                                "Capacitar empresas com ferramentas financeiras, estratégias e sistemas de gestão que permitam melhorar o desempenho, fortalecer o fluxo de caixa e promover o crescimento sustentável."
+                            </p>
+                        </div>
+                        <div class="bg-white p-10 border-l-2 border-brandGold shadow-sm">
+                            <h4 class="text-[9px] font-bold tracking-[0.3em] text-brandBlue uppercase mb-4">Visão</h4>
+                            <p class="text-[15px] text-gray-500 font-serif italic leading-relaxed">
+                                "Ser uma consultora financeira de referência em África, reconhecida pela excelência técnica e pela capacidade de gerar impacto real na rentabilidade dos nossos clientes."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function runAnimation(item) {
+            const target = +item.getAttribute('data-target');
+            const counter = item.querySelector('.counter');
+            const circleId = item.getAttribute('data-circle');
+            
+            // Animando o Número
+            let start = 0;
+            const duration = 1000; 
+            const startTime = performance.now();
+
+            function update(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                counter.innerText = Math.floor(progress * target);
+                if (progress < 1) requestAnimationFrame(update);
+                else counter.innerText = target;
+            }
+            requestAnimationFrame(update);
+
+            // Animando o Círculo
+            if (circleId) {
+                const circle = document.getElementById(circleId);
+                // Reset imediato para 150 (vazio)
+                circle.style.transition = 'none';
+                circle.style.strokeDashoffset = '150';
+                
+                // Pequeno delay para o navegador processar o reset e depois animar
+                setTimeout(() => {
+                    circle.style.transition = 'stroke-dashoffset 1s ease-in-out';
+                    const offset = 150 * (1 - (target / 100));
+                    circle.style.strokeDashoffset = offset;
+                }, 50);
+            }
+        }
+
+        const statItems = document.querySelectorAll('.stat-item');
+
+        statItems.forEach(item => {
+            // Gatilho 1: Scroll (Executa uma vez quando aparece)
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    runAnimation(item);
+                    observer.unobserve(item);
+                }
+            }, { threshold: 0.5 });
+            observer.observe(item);
+
+            // Gatilho 2: Mouse Hover (Executa sempre que passar o rato)
+            item.addEventListener('mouseenter', () => {
+                runAnimation(item);
+            });
+        });
+    </script>
+
+    <section id="services" class="py-24 bg-lightGray">
+    <div class="max-w-7xl mx-auto px-8">
+        <div class="mb-20">
+            <h3 class="text-[11px] font-bold tracking-[0.5em] text-brandBlue uppercase mb-4">Soluções Principais</h3>
+            <div class="h-px bg-brandBlue w-24"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+            
+            <div class="service-card pt-10 flex flex-col h-full">
+                <span class="text-[10px] font-bold text-brandGold mb-6 block uppercase tracking-[0.2em]">01. Financiamento</span>
+                <h4 class="text-2xl font-serif text-brandBlue mb-6 min-h-[64px]">Assessoria de Capital e Financiamento</h4>
+                <ul class="text-sm text-gray-600 space-y-3 mb-10 font-light flex-grow">
+                    <li>• Estruturação de Financiamento de Dívida</li>
+                    <li>• Captação de Capital Próprio (Equity)</li>
+                    <li>• Reestruturação de Dívida</li>
+                    <li>• Memorandos de Investimento</li>
+                    <li>• Negociações Bancárias e com Investidores</li>
+                </ul>
+                <div class="impact-tag p-4 bg-white shadow-sm font-bold text-[10px] tracking-widest text-brandBlue uppercase mt-auto">
+                    ✔ Impacto: Acesso a capital e redução de custos de financiamento
+                </div>
+            </div>
+
+            <div class="service-card pt-10 flex flex-col h-full">
+                <span class="text-[10px] font-bold text-brandGold mb-6 block uppercase tracking-[0.2em]">02. Optimização</span>
+                <h4 class="text-2xl font-serif text-brandBlue mb-6 min-h-[64px]">Recuperação Financeira e Custos</h4>
+                <ul class="text-sm text-gray-600 space-y-3 mb-10 font-light flex-grow">
+                    <li>• Recuperação de Impostos (Cobranças indevidas)</li>
+                    <li>• Recuperação de Taxas e Comissões Bancárias</li>
+                    <li>• Revisão Técnica de Custos Financeiros</li>
+                    <li>• Auditoria de Encargos Bancários</li>
+                    <li>• Optimização da Estrutura de Custos</li>
+                </ul>
+                <div class="impact-tag p-4 bg-white shadow-sm font-bold text-[10px] tracking-widest text-brandBlue uppercase mt-auto">
+                    ✔ Impacto: Liquidez imediata e melhoria de margem
+                </div>
+            </div>
+
+            <div class="service-card pt-10 flex flex-col h-full">
+                <span class="text-[10px] font-bold text-brandGold mb-6 block uppercase tracking-[0.2em]">03. Gestão</span>
+                <h4 class="text-2xl font-serif text-brandBlue mb-6 min-h-[64px]">Serviços de Contabilidade e Finanças</h4>
+                <ul class="text-sm text-gray-600 space-y-3 mb-10 font-light flex-grow">
+                    <li>• Contabilidade e Conformidade Fiscal</li>
+                    <li>• Implementação de ERP Cegid Primavera</li>
+                    <li>• Gestão de Tesouraria e Fluxo de Caixa</li>
+                    <li>• Processamento de Salários</li>
+                    <li>• Registo, legalização e licenciamento de empresas (junto da Autoridade Tributária e do INSS/MITESS)</li>
+                </ul>
+                <div class="impact-tag p-4 bg-white shadow-sm font-bold text-[10px] tracking-widest text-brandBlue uppercase mt-auto">
+                    ✔ Impacto: Informação fiáveis e controlo financeiro
+                </div>
+            </div>
+
+            <div class="service-card pt-10 flex flex-col h-full">
+                <span class="text-[10px] font-bold text-brandGold mb-6 block uppercase tracking-[0.2em]">04. Desempenho</span>
+                <h4 class="text-2xl font-serif text-brandBlue mb-6 min-h-[64px]">Serviços Financeiros Específicos</h4>
+                <ul class="text-sm text-gray-600 space-y-3 mb-10 font-light flex-grow">
+                    <li>• Due Diligence Financeiro</li>
+                    <li>• Finanças corporativas (orçamentação e modelação financeira avançada)</li>
+                    <li>• Elaboração de planos de negócios</li>
+                    <li>• Avaliação de transacções financeiras específicas</li>
+                    <li>• Auditoria</li>
+                </ul>
+                <div class="impact-tag p-4 bg-white shadow-sm font-bold text-[10px] tracking-widest text-brandBlue uppercase mt-auto">
+                    ✔ Impacto: Crescimento sustentável e melhores decisões
+                </div>
+            </div>
+
+            <div class="service-card pt-10 flex flex-col h-full">
+                <span class="text-[10px] font-bold text-brandGold mb-6 block uppercase tracking-[0.2em]">05. Inteligência</span>
+                <h4 class="text-2xl font-serif text-brandBlue mb-6 min-h-[64px]">Desenvolvemos Sistemas Específicos de Reporting para CFOs</h4>
+                <ul class="text-sm text-gray-600 space-y-3 mb-10 font-light flex-grow">
+                    <li>• Dashboards Executivos e KPIs em ERP</li>
+                    <li>• Relatórios de P&L, Balanço e Fluxo de Caixa</li>
+                    <li>• Análise Orçamental vs Real</li>
+                    <li>• Planeamento de Tesouraria a 13 Semanas (AR/AP)</li>
+                    <li>• Relatórios de Antiguidade de Saldos (AR/AP)</li>
+                </ul>
+                <div class="impact-tag p-4 bg-white shadow-sm font-bold text-[10px] tracking-widest text-brandBlue uppercase mt-auto">
+                    ✔ Impacto: Reporting profissional e cultura baseada em dados
+                </div>
+            </div>
+
+            <div class="service-card pt-10 flex flex-col h-full">
+                <span class="text-[10px] font-bold text-brandGold mb-6 block uppercase tracking-[0.2em]">06. Capacitação</span>
+                <h4 class="text-2xl font-serif text-brandBlue mb-6 min-h-[64px]">Formação e Capacitação</h4>
+                <ul class="text-sm text-gray-600 space-y-3 mb-10 font-light flex-grow">
+                    <li>• Gestão Financeira para Executivos</li>
+                    <li>• Formação Técnica em ERP Primavera</li>
+                    <li>• Sistemas de Controlo Interno</li>
+                    <li>• Normas ISO 9001 | 14001 | 45001</li>
+                    <li>• Sistemas de Gestão Integrados</li>
+                </ul>
+                <div class="impact-tag p-4 bg-white shadow-sm font-bold text-[10px] tracking-widest text-brandBlue uppercase mt-auto">
+                    ✔ Impacto: Equipas de alto desempenho e processos eficientes
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <section id="contact" class="py-24 border-t border-gray-100 bg-white">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="mb-16">
+                <h3 class="text-[11px] font-bold tracking-[0.5em] text-brandBlue uppercase mb-4">Contacto e Informações</h3>
+                <h2 class="text-4xl font-serif text-brandBlue">Seja nosso parceiro no seu próximo marco estratégico.</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-20">
+                <div class="space-y-12">
+                    <p class="text-gray-500 font-light max-w-md">Contacte o nosso escritório em Maputo para agendar uma apresentação detalhada ou uma reunião de diagnóstico com os nossos parceiros.</p>
+                    
+                    <div class="space-y-8">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Av.+24+de+Julho,+n°+42,+Maputo" target="_blank" class="flex items-start group">
+                            <i class="fa-solid fa-location-dot mt-1 text-brandGold group-hover:text-brandBlue transition mr-6 text-xl"></i>
+                            <div>
+                                <h5 class="text-[10px] font-bold tracking-widest text-gray-400 uppercase mb-1">O Nosso Escritório</h5>
+                                <p class="text-sm font-semibold text-brandBlue group-hover:underline">Av. 24 de Julho, n° 42, Maputo, Moçambique</p>
+                            </div>
+                        </a>
+
+                        <a href="mailto:info@prime-partners.net" class="flex items-start group">
+                            <i class="fa-solid fa-envelope mt-1 text-brandGold group-hover:text-brandBlue transition mr-6 text-xl"></i>
+                            <div>
+                                <h5 class="text-[10px] font-bold tracking-widest text-gray-400 uppercase mb-1">E-mail Direto</h5>
+                                <p class="text-sm font-semibold text-brandBlue group-hover:underline">info@prime-partners.net</p>
+                            </div>
+                        </a>
+
+                        <a href="https://wa.me/258863026749" target="_blank" class="flex items-start group">
+                            <i class="fa-brands fa-whatsapp mt-1 text-brandGold group-hover:text-brandBlue transition mr-6 text-xl"></i>
+                            <div>
+                                <h5 class="text-[10px] font-bold tracking-widest text-gray-400 uppercase mb-1">WhatsApp / Telefone</h5>
+                                <p class="text-sm font-semibold text-brandBlue group-hover:underline">+258 86 3026749</p>
+                            </div>
+                        </a>
+                    </div>
+                    <img src="logotipo.png" alt="Prime Partners" class="h-24 w-auto object-contain mx-auto md:mx-0 mb-4">
+                    <div class="pt-8 border-t border-gray-100">
+                        <h5 class="text-[10px] font-bold tracking-widest text-gray-400 uppercase mb-6">Acompanhe as nossas novidades</h5>
+                        <div class="flex space-x-8 text-2xl text-brandBlue">
+                            <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="bg-lightGray p-10 md:p-14 rounded-sm shadow-sm">
+                    <form id="contactForm" class="space-y-8">
+                        <div>
+                            <label class="text-[10px] font-bold tracking-widest text-gray-400 uppercase">Nome Completo</label>
+                            <input type="text" name="name" class="w-full border-b border-gray-300 bg-transparent py-3 outline-none focus:border-brandBlue transition text-sm font-medium" required>
+                        </div>
+                        <div>
+                            <label class="text-[10px] font-bold tracking-widest text-gray-400 uppercase">E-mail Corporativo</label>
+                            <input type="email" name="email" class="w-full border-b border-gray-300 bg-transparent py-3 outline-none focus:border-brandBlue transition text-sm font-medium" required>
+                        </div>
+                        <div>
+                            <label class="text-[10px] font-bold tracking-widest text-gray-400 uppercase">Como podemos ajudar?</label>
+                            <textarea name="message" rows="3" class="w-full border-b border-gray-300 bg-transparent py-3 outline-none focus:border-brandBlue transition text-sm font-medium" required></textarea>
+                        </div>
+                        <button type="submit" id="submitBtn" class="bg-brandBlue text-white px-10 py-5 text-[10px] font-bold tracking-[0.4em] uppercase hover:bg-black transition w-full">
+                            Enviar Mensagem
+                        </button>
+                        <div id="formStatus" class="hidden mt-4 text-[10px] font-bold tracking-widest uppercase text-center"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-white border-t border-gray-100 text-center">
+        <p class="text-[9px] text-gray-400 tracking-[0.4em] uppercase font-semibold">© 2026 Prime Partners Corporate. Todos os Direitos Reservados. Maputo, Moçambique.</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('formStatus');
+        const btn = document.getElementById('submitBtn');
+
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            btn.disabled = true;
+            btn.innerText = "A enviar...";
+            
+            const data = new FormData(form);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    status.innerHTML = "<span class='text-green-500 italic'>Mensagem enviada com sucesso. Contactá-lo-emos brevemente.</span>";
+                    status.classList.remove('hidden');
+                    form.reset();
+                } else {
+                    throw new Error();
+                }
+            } catch (error) {
+                status.innerHTML = "<span class='text-red-500 italic'>Erro. Por favor, tente novamente ou contacte-nos diretamente por e-mail.</span>";
+                status.classList.remove('hidden');
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "Enviar Pedido";
+            }
+        };
+    </script>
+
+</body>
+</html>
