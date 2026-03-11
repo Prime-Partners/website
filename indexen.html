@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Partners | Financial Advisory & Consulting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { opacity: 0; transition: opacity 0.4s ease-in; font-family: sans-serif; }
+        body.loaded { opacity: 1; }
+        .loading-screen { position: fixed; inset: 0; background: white; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+    </style>
+</head>
+<body>
+    <div id="loader" class="loading-screen">
+        <div class="text-brandBlue font-serif italic text-xl animate-pulse">Loading English Version...</div>
+    </div>
+
+    <div id="app-root"></div>
+
+    <script>
+        async function translatePage() {
+            try {
+                // 1. Puxa o conteúdo do index principal
+                const response = await fetch('indexpt.html');
+                if (!response.ok) throw new Error('Could not find indexpt.html');
+                const html = await response.text();
+                
+                const parser = new DOMParser();
+                const vDoc = parser.parseFromString(html, 'text/html');
+
+                // 2. DICIONÁRIO DE TRADUÇÃO INTEGRAL (Incluindo Serviços)
+                const lexicon = {
+                    // Navegação e Cabeçalhos
+                    "O Nosso Propósito": "Our Purpose",
+                    "Soluções Principais": "Main Solutions",
+                    "Performance Milestones": "Performance Milestones",
+                    "Valores Corporativos": "Corporate Values",
+                    
+                    // Secção Sobre (Texto Longo)
+                    "Transformar desafios financeiros em oportunidades para um crescimento sustentável.": "Transforming financial challenges into opportunities for sustainable growth.",
+                    "Ao longo dos anos, a Prime Partners tem desempenhado um papel activo": "Over the years, Prime Partners has played an active role",
+                    "mobilização de mais de 300 milhões de Meticais": "mobilizing over 300 million Meticais",
+                    "até 2030": "by 2030",
+                    "3 Mil Milhões de Meticais": "3 Billion Meticais",
+                    
+                    // Valores, Missão e Visão
+                    "Integridade": "Integrity", "Excelência": "Excellence", "Responsabilização": "Accountability", "Parceria": "Partnership",
+                    "Missão": "Mission", "Visão": "Vision",
+                    "Capacitar empresas com ferramentas financeiras": "Empowering companies with financial tools",
+                    "Ser uma consultora financeira de referência": "To be a leading financial consultancy",
+
+                    // Dashboard
+                    "MZN Mobilizados": "MZN Mobilized",
+                    "Taxa de Sucesso": "Success Rate",
+                    "Poupança Financeira": "Financial Savings",
+                    "Melhoria EBITDA": "EBITDA Improvement",
+                    "Horas de Consultoria": "Consulting Hours",
+
+                    // SERVIÇOS (Tradução dos Títulos e Impactos)
+                    "Assessoria de Capital e Financiamento": "Capital and Financing Advisory",
+                    "Recuperação Financeira e Custos": "Financial Recovery and Costs",
+                    "Serviços de Contabilidade e Finanças": "Accounting and Finance Services",
+                    "Serviços Financeiros Específicos": "Specific Financial Services",
+                    "Desenvolvemos Sistemas Específicos de Reporting para CFOs": "Specific Reporting Systems for CFOs",
+                    "Formação e Capacitação": "Training and Capacity Building",
+                    "Impacto:": "Impact:",
+                    "Acesso a capital e redução de custos": "Access to capital and cost reduction",
+                    "Liquidez imediata e melhoria de margem": "Immediate liquidity and margin improvement",
+                    "Informação fiáveis e controlo financeiro": "Reliable information and financial control",
+                    "Crescimento sustentável e melhores decisões": "Sustainable growth and better decisions",
+                    "Reporting profissional e cultura baseada em dados": "Professional reporting and data-driven culture",
+                    "Equipas de alto desempenho e processos eficientes": "High-performance teams and efficient processes"
+                };
+
+                // 3. Função de substituição recursiva
+                function applyTranslation(element) {
+                    if (element.nodeType === Node.TEXT_NODE) {
+                        let content = element.textContent.trim();
+                        for (const [pt, en] of Object.entries(lexicon)) {
+                            if (content.includes(pt)) {
+                                element.textContent = element.textContent.replace(pt, en);
+                            }
+                        }
+                    } else {
+                        element.childNodes.forEach(applyTranslation);
+                    }
+                }
+
+                // Injetar e Traduzir
+                const mainContent = vDoc.body.innerHTML;
+                const root = document.getElementById('app-root');
+                root.innerHTML = mainContent;
+                applyTranslation(root);
+
+                // 4. Inverter o botão de idioma (Para voltar a PT)
+                const langSwitcher = document.querySelector('a[href="indexen.html"]');
+                if (langSwitcher) {
+                    langSwitcher.href = "indexpt.html";
+                    langSwitcher.innerHTML = "PT";
+                }
+
+                // Finalização
+                document.getElementById('loader').style.display = 'none';
+                document.body.classList.add('loaded');
+
+                // Reiniciar scripts de animação (Copiar lógica do Dashboard se necessário)
+                if (window.initAnimations) window.initAnimations();
+
+            } catch (err) {
+                console.error("Translation Error:", err);
+                document.getElementById('loader').innerHTML = "Error loading English version.";
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', translatePage);
+    </script>
+</body>
+</html>
