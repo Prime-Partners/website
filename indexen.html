@@ -438,68 +438,68 @@
                 </div>
 
                 <div class="bg-lightGray p-10 md:p-14 rounded-sm shadow-sm">
-                    <form id="contactForm" class="space-y-8">
-                        <div>
-                            <label class="text-[10px] font-bold tracking-widest text-gray-400 uppercase">Full Name</label>
-                            <input type="text" name="name" class="w-full border-b border-gray-300 bg-transparent py-3 outline-none focus:border-brandBlue transition text-sm font-medium" required>
-                        </div>
-                        <div>
-                            <label class="text-[10px] font-bold tracking-widest text-gray-400 uppercase">Corporate E-mail</label>
-                            <input type="email" name="email" class="w-full border-b border-gray-300 bg-transparent py-3 outline-none focus:border-brandBlue transition text-sm font-medium" required>
-                        </div>
-                        <div>
-                            <label class="text-[10px] font-bold tracking-widest text-gray-400 uppercase">How can we help?</label>
-                            <textarea name="message" rows="3" class="w-full border-b border-gray-300 bg-transparent py-3 outline-none focus:border-brandBlue transition text-sm font-medium" required></textarea>
-                        </div>
-                        <button type="submit" id="submitBtn" class="bg-brandBlue text-white px-10 py-5 text-[10px] font-bold tracking-[0.4em] uppercase hover:bg-black transition w-full">
-                            Send Message
-                        </button>
-                        <div id="formStatus" class="hidden mt-4 text-[10px] font-bold tracking-widest uppercase text-center"></div>
-                    </form>
-                </div>
-            </div>
+    <form id="contactForm" action="https://formspree.io/f/mjgawvpr" method="POST" class="space-y-8">
+        <div>
+            <label class="text-[10px] font-bold tracking-widest text-gray-400 uppercase">Full Name</label>
+            <input type="text" name="name" class="w-full border-b border-gray-300 bg-transparent py-3 outline-none focus:border-brandBlue transition text-sm font-medium" required>
         </div>
-    </section>
+        <div>
+            <label class="text-[10px] font-bold tracking-widest text-gray-400 uppercase">Corporate E-mail</label>
+            <input type="email" name="email" class="w-full border-b border-gray-300 bg-transparent py-3 outline-none focus:border-brandBlue transition text-sm font-medium" required>
+        </div>
+        <div>
+            <label class="text-[10px] font-bold tracking-widest text-gray-400 uppercase">How can we help?</label>
+            <textarea name="message" rows="3" class="w-full border-b border-gray-300 bg-transparent py-3 outline-none focus:border-brandBlue transition text-sm font-medium" required></textarea>
+        </div>
+        
+        <button type="submit" id="submitBtn" class="bg-brandBlue text-white px-10 py-5 text-[10px] font-bold tracking-[0.4em] uppercase hover:bg-black transition w-full">
+            Send Message
+        </button>
+        
+        <div id="formStatus" class="hidden mt-4 text-[10px] font-bold tracking-widest uppercase text-center"></div>
+    </form>
+</div>
 
-    <footer class="py-12 bg-white border-t border-gray-100 text-center">
-        <p class="text-[9px] text-gray-400 tracking-[0.4em] uppercase font-semibold">© 2026 Prime Partners Corporate. All Rights Reserved. Maputo, Mozambique.</p>
-    </footer>
+<script>
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    const btn = document.getElementById('submitBtn');
 
-    <script>
-        const form = document.getElementById('contactForm');
-        const status = document.getElementById('formStatus');
-        const btn = document.getElementById('submitBtn');
+    form.onsubmit = async (e) => {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerText = "Sending..."; // Feedback de carregamento
+        
+        const data = new FormData(form);
+        
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
 
-        form.onsubmit = async (e) => {
-            e.preventDefault();
-            btn.disabled = true;
-            btn.innerText = "Sending...";
-            
-            const data = new FormData(form);
-            
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    status.innerHTML = "<span class='text-green-500 italic'>Message sent successfully. We will contact you shortly.</span>";
-                    status.classList.remove('hidden');
-                    form.reset();
+            if (response.ok) {
+                status.innerHTML = "<span class='text-green-600 italic'>Message sent successfully. We will contact you shortly.</span>";
+                status.classList.remove('hidden');
+                form.reset();
+            } else {
+                const result = await response.json();
+                if (Object.hasOwn(result, 'errors')) {
+                    status.innerHTML = result.errors.map(error => error.message).join(", ");
                 } else {
                     throw new Error();
                 }
-            } catch (error) {
-                status.innerHTML = "<span class='text-red-500 italic'>Error. Please try again or contact us directly via email.</span>";
-                status.classList.remove('hidden');
-            } finally {
-                btn.disabled = false;
-                btn.innerText = "Send Inquiry";
             }
-        };
-    </script>
+        } catch (error) {
+            status.innerHTML = "<span class='text-red-500 italic'>Error. Please try again or contact us via WhatsApp.</span>";
+            status.classList.remove('hidden');
+        } finally {
+            btn.disabled = false;
+            btn.innerText = "Send Message";
+        }
+    };
+</script>
 
 </body>
 </html>  
